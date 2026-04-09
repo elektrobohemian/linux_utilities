@@ -1,0 +1,15 @@
+'#recycle/'
+.cache/
+_datasets/
+/air_m4.ccc/_Backups/
+
+# Git (in all subdirectories)
+.git/
+.gitignore
+.gitmodules
+.gitattributes
+
+# GitHub/GitLab CI
+.github/
+.gitlab/
+.gitlab-ci.yml

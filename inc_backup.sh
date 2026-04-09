@@ -12,6 +12,9 @@
 #	* improved output
 #	* moved output for find from &>/dev/zero to &>/dev/null
 #	* added progress human-readable output for rsync run
+#	* added duration output
+# 	* added support for file-based exclusion list
+#	* added choice between dry run and actual backup
 # 
 # original license:
 #
@@ -41,10 +44,14 @@
 TODAY=`date +%Y-%m-%d_%H-%M`
 #SRC="$1"
 #DEST="$2"
-SRC="/volume1/nas_contents/"
+SRC="/volume1/nas_contents/archived_data/"
 DEST="/volume2/nas_archive"
 
 LATEST="latest"
+
+start_time=$(date "+%H:%M:%S")   # 14:32:07
+start_date=$(date "+%d.%m.%Y")  #  07.04.2026
+start=$(date +%s) # start timestamp
 
 if [[ -z "$SRC" ]]
 then
@@ -76,30 +83,65 @@ fi
 cd "$DEST"
 
 #OPTS="-azvP --mkpath --delete"
-OPTS="-azhP --info=progress2 --mkpath"
+OPTS_original="-azhP --info=progress2 --exclude-from=/home/david_adm/archive_exclusions.txt --mkpath"
+OPTS="-azhP --info=progress2 --exclude-from=/home/david_adm/archive_exclusions.txt --mkpath"
 
 if [[ ! -L "${LATEST}" ]] 
 then
     echo "[WARN] Previous backup in ${LATEST} was not found. Starting complete backup."
 else 
-    OPTS="${OPTS} --link-dest ${DEST}/${LATEST}"
+    OPTS="${OPTS} --link-dest $(realpath ${DEST}/${LATEST})/"
 fi
 
-printf '%s' "Press any key to start backup..." && read
+echo "RSYNC will be launched with the following parameters:  ${OPTS} ${SRC} ${TARGET}"
+#printf '%s' "Press any key to start backup..." && read
+
+read -p "Backup (b or any key) or dry run (d)? [b/d]: " answer
+if [[ "$answer" == "d" || "$answer" == "D" ]]; then
+	echo "Dry run enabled."
+	printf '%s' "Press any key to start dry run..." && read
+	rm -rf ${TARGET}
+    rsync ${OPTS} --dry-run ${SRC} ${TARGET}
+else
+	#RESULT_OF_RSYNC=`rsync ${OPTS} ${SRC} ${TARGET}`
+	#echo "$RESULT_OF_RSYNC"
+	echo "Normal backup."
+	printf '%s' "Press any key to start backup..." && read
+	rsync ${OPTS} ${SRC} ${TARGET}
+fi
 
 
-#RESULT_OF_RSYNC=`rsync ${OPTS} ${SRC} ${TARGET}`
-#echo "$RESULT_OF_RSYNC"
-rsync ${OPTS} ${SRC} ${TARGET}
+
 
 PREV_RES=$?
 
+echo " "
+
 if [[ ${PREV_RES} -eq "0" ]]
 then
-    echo -e "[DEBUG] Backup completed successfully."
-    `rm -f ${LATEST}`
-    `ln --symbolic ${TARGET} ${LATEST}`
+    echo -e "[INFO] Backup completed successfully."
+    rm -f ${LATEST}
+    ln --symbolic ${TARGET} ${LATEST}
 else
     echo -e "[ERROR] An error occured during backup."
 exit "${PREV_RES}"
 fi
+
+end=$(date +%s)
+
+diff=$((end - start))
+
+hrs=$(( diff / 3600 ))
+mins=$(( (diff % 3600) / 60 ))
+secs=$(( diff % 60 ))
+
+
+
+end_time=$(date "+%H:%M:%S")   # 14:32:07
+end_date=$(date "+%d.%m.%Y")  #  07.04.2026
+
+echo " "
+# duration output
+echo "Started at: $start_date - $start_time "
+echo "Ended at: $end_date - $end_time "
+printf "Duration: %02d:%02d:%02d\n" $hrs $mins $secs
