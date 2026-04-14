@@ -3,6 +3,8 @@
 ## Commands
 
 
+## Data Quality
+* [deadlink_checker_md.py](deadlink_checker_md.py) checks a folder (non-recursively) for .md files and tries to discover link rot indicated by a HTTP 404 response. Dead links will be appended to each markdown file and tagged with #dead-links.
 
 ## Backup and Analysis
 
