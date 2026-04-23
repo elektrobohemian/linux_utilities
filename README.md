@@ -21,6 +21,8 @@
 ## Knowledge Management
 
 ### Obsidian and logseq
+
+#### Conversion Utilities
 * [obsidian_todo_2_logseq.py](obsidian_todo_2_logseq.py) replaces all `- [ ]` (checkmark to-do bullet points in Obsidian) with logseq's `- TODO` format. To make most out of the script, create a task management page in logseq with this query: 
 
     ```
@@ -33,6 +35,7 @@
     ```
     to get an overview over all dead links.
 
+* [obsidian_tags_2_logseq.py](obsidian_tags_2_logseq.py) takes all Obsidian `#foo` tags and converts them to logseq page tags for each markdown document.
 ---
 
 ## Links
