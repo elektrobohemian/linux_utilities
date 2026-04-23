@@ -1,4 +1,4 @@
-# Various Linux Utilities Used Daily
+# Various Linux/macOS Utilities Used Daily
 
 ## Commands
 
@@ -14,6 +14,10 @@
 
 * ``iftop`` top for network traffic
 * ``ethtool`` network diagnostics
+
+## Spyware
+* [Claude_Launch_Without_Spying.shortcut](claude_doc.md) A macOS shortcut that deletes the spyware components Claude Desktop installs on every launch.
+
 
 ---
 
