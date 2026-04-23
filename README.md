@@ -20,10 +20,44 @@
 
 ## Knowledge Management
 
-### Obsidian and logseq
+### Obsidian and Logseq
 
-#### Conversion Utilities
-* [obsidian_todo_2_logseq.py](obsidian_todo_2_logseq.py) replaces all `- [ ]` (checkmark to-do bullet points in Obsidian) with logseq's `- TODO` format. To make most out of the script, create a task management page in logseq with this query: 
+##### Setup
+
+Making [Obsidian](https://obsidian.md) and [Logseq](https://logseq.com) to work on the same documents is fairly easy when configured properly.
+
+##### Obsidian
+1. Create a folder that should store your markdown documents, e.g. `obsidian`.
+2. In this folder create the following subdirectories:
+    * `assets`
+    * `journals`
+    * `pages`
+    * `obsidian_canvas` (optional if you plan to use Obsidian's canvas)
+    It is important to create these directories __before launching__ Obsidian, otherwise it might complain about non-existent folders during setup. In addition, if all folders are created before configuration, you can choose them from drop-down menus.
+3. Open Obsidian, "Manage vaults", "Open folder as vault": chose the newly created folder, e.g. `obsidian`.
+4. Go to Settings, "Files & Links" and set everything as follows:
+    * "Default location for new notes": "In the folder specified below." 
+    * "Folder to create new notes in": set to `pages`
+    * "Default location for new attachments": "In the folder specified below." 
+    * "Attachment folder path": "" set to `assets`
+     * "New link format": set to "Relative path to file."
+    * "Use [[Wikilinks]]": switch off
+    * _Optional but recommended:_ If you want to avoid cluttered graphs after working a while with Logseq, adjust "Excluded files" to include: `whiteboards`, `logseq`
+5. Go to Settings, "Core plugins" and set up the "Daily Notes" plugin as follows:
+    * "Date format": yyyy-MM-dd, e.g. 2026-04-23
+    * "New file location": set to `journals`
+6. _Optional:_ If you want to use the canvas, go to Settings, "Core plugins" and set up the "Canvas" plugin to use the `obsidian_canvas` folder.
+7. Ignore
+
+##### Logseq
+1. Open Logseq and choose "Add new graph" and point to the newly created folder, e.g. `obsidian`.
+2. You will most likely be prompted to re-index the Logseq graph (see drop down menu of the current graph, e.g. `obsidian`).
+3. Go to Settings, "Editor" and make sure that the "Preferred date format" matches Obsidian's format, i.e. `yyyy-MM-dd` if you followed this guide.
+4. _Optional:_ Activate "Prefer pasting file" to let Logseq download images from the web instead of linking them. I recommend this settings as it will reduce link rot.
+5. You are completely set up.
+
+##### Conversion Utilities
+* [obsidian_todo_2_logseq.py](obsidian_todo_2_logseq.py) replaces all `- [ ]` (checkmark to-do bullet points in Obsidian) with Logseq's `- TODO` format. To make most out of the script, create a task management page in Logseq with this query: 
 
     ```
     {{query (and (task TODO DOING LATER) (not [[done]]))}}
@@ -35,7 +69,8 @@
     ```
     to get an overview over all dead links.
 
-* [obsidian_tags_2_logseq.py](obsidian_tags_2_logseq.py) takes all Obsidian `#foo` tags and converts them to logseq page tags for each markdown document.
+* [obsidian_tags_2_logseq.py](obsidian_tags_2_logseq.py) takes all Obsidian `#foo` tags and converts them to Logseq page tags for each markdown document.
+
 ---
 
 ## Links
