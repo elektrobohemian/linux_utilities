@@ -18,6 +18,20 @@
 ## Spyware
 * [Claude_Launch_Without_Spying.shortcut](claude_doc.md) A macOS shortcut that deletes the spyware components Claude Desktop installs on every launch.
 
+## Knowledge Management
+
+### Obsidian and logseq
+* [obsidian_todo_2_logseq.py](obsidian_todo_2_logseq.py) replaces all `- [ ]` (checkmark to-do bullet points in Obsidian) with logseq's `- TODO` format. To make most out of the script, create a task management page in logseq with this query: 
+
+    ```
+    {{query (and (task TODO DOING LATER) (not [[done]]))}}
+    ```
+
+    In case you have used the deadlink checker, you could also add
+    ```
+    {{query #dead-links }}
+    ```
+    to get an overview over all dead links.
 
 ---
 
