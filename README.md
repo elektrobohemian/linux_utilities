@@ -2,6 +2,21 @@
 
 ## Commands
 
+### tar
+
+* List contents of a tarball
+```
+tar -tvf archive.tar.gz | more
+```
+* List and filter contents of a tarball
+```
+tar -tvf archive.tar.gz | grep 'some_term' 
+```
+* Extract a file from a tarball
+```
+tar -xvf archive.tar path/to/file
+```
+[More details...](https://www.cyberciti.biz/faq/linux-unix-extracting-specific-files/)
 
 ## Data Quality
 * [deadlink_checker_md.py](deadlink_checker_md.py) checks a folder (non-recursively) for .md files and tries to discover link rot indicated by a HTTP 404 response. Dead links will be appended to each markdown file and tagged with #dead-links.
