@@ -18,6 +18,19 @@ tar -xvf archive.tar path/to/file
 ```
 [More details...](https://www.cyberciti.biz/faq/linux-unix-extracting-specific-files/)
 
+### Image Processing
+
+* Convert all "image" files in a directory (bash, requires imagemagick and works on a myriad of file types)
+```
+for f in *.png; do
+  convert ./"$f" ./"${f%.png}.pdf"
+done
+```
+
+## Data Management
+
+* Compare directories https://linuxhandbook.com/compare-directories/
+
 ## Data Quality
 * [deadlink_checker_md.py](deadlink_checker_md.py) checks a folder (non-recursively) for .md files and tries to discover link rot indicated by a HTTP 404 response. Dead links will be appended to each markdown file and tagged with #dead-links.
 
