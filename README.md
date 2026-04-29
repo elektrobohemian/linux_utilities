@@ -26,6 +26,13 @@ for f in *.png; do
   convert ./"$f" ./"${f%.png}.pdf"
 done
 ```
+## Command Line Configuration
+
+[Starship](https://starship.rs) simplifies working with the same looking shell on various computer tremendously. It works best with the so-called nerd fonts.
+
+Typically, I use the ``AtkynsonMono Nerd Font`` from https://www.nerdfonts.com. You might want to use this font in Visual Studio Code etc. as well.
+
+My personal setup is based on [starship.toml](./starship.toml) that has to be copied to ``~/.config/starship.toml``.
 
 ## Data Management
 
