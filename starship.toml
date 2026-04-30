@@ -14,6 +14,8 @@ $nodejs\
 $rust\
 $golang\
 $php\
+$swift\
+rlang\
 $python\
 [](fg:#212736 bg:#1d2230)\
 $time\
@@ -28,13 +30,24 @@ truncation_length = 5
 truncation_symbol = "…/"
 
 [directory.substitutions]
+"Mobile Documents/com~apple~CloudDocs" = " 󰅣 "
+
 "Documents" = "󰈙 "
+"Dokumente" = "󰈙 "
 "Downloads" = " "
 "Music" = " "
+"Musik" = " "
 "Pictures" = " "
+"Bilder" = " "
 "kill.me" = " "
 "killme" = " "
 "src" = " "
+"_datasets" = " "
+"__datasets" = " "
+
+"Nextcloud" = "Next 󰅣 "
+"luckycloud" = "lucky 󰅣 "
+
 
 [git_branch]
 symbol = ""
