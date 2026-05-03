@@ -1,6 +1,7 @@
 '#recycle/'
 .cache/
 _datasets/
+__datasets/
 /air_m4.ccc/_Backups/
 
 # Git (in all subdirectories)
@@ -13,3 +14,20 @@ _datasets/
 .github/
 .gitlab/
 .gitlab-ci.yml
+
+# Python virtual environments
+venv/
+.venv/
+
+# macOS specific
+.Trash/
+.DS_Store
+
+# temporary, cache and log files (manually selected)
+Code/logs/
+.arduinoIDE/logs/
+.arduinoIDE/localization-cache/
+Library/Caches/
+.bundle/cache/
+.cocoapods/
+
