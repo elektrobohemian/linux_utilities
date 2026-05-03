@@ -50,6 +50,14 @@ My personal setup is based on [starship.toml](./starship.toml) that has to be co
 * ``iftop`` top for network traffic
 * ``ethtool`` network diagnostics
 
+### SSH
+
+Execute a command on a remote server that relies on a password
+```
+SSH_PASS="my_password"
+ssh -i ~/.ssh/my_private_key user@server "echo '$SSH_PASS' | sudo -S ls"
+```
+
 ## Spyware
 * [Claude_Launch_Without_Spying.shortcut](claude_doc.md) A macOS shortcut that deletes the spyware components Claude Desktop installs on every launch.
 
