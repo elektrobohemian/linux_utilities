@@ -37,9 +37,14 @@ My personal setup is based on [starship.toml](./starship.toml) that has to be co
 ## Data Management
 
 * Compare directories https://linuxhandbook.com/compare-directories/
+* List contents of very large directories (in terms of number of files): ``ls -1Ua``, i.e., ``-1`` one file per line, ``-U`` skips sorting and ``-a`` all files, including hidden files, will be listed
+* Count number of files ``ls -1Ua | wc -l``
+* Get size of a directory ``du -sh dir/``
+* Get size of directory when symlinks are handled as separate files ``du -sh --count-links dir/``
 
 ## Data Quality
 * [deadlink_checker_md.py](deadlink_checker_md.py) checks a folder (non-recursively) for .md files and tries to discover link rot indicated by a HTTP 404 response. Dead links will be appended to each markdown file and tagged with #dead-links.
+
 
 ## Backup and Analysis
 
