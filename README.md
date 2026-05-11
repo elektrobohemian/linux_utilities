@@ -26,6 +26,11 @@ for f in *.png; do
   convert ./"$f" ./"${f%.png}.pdf"
 done
 ```
+
+### Fonts
+
+* Reset font cache (e.g., Ubuntu): ``fc-cache -f -v``
+ 
 ## Command Line Configuration
 
 [Starship](https://starship.rs) simplifies working with the same looking shell on various computer tremendously. It works best with the so-called nerd fonts.
