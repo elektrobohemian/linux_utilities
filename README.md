@@ -34,6 +34,17 @@ Typically, I use the ``AtkynsonMono Nerd Font`` from https://www.nerdfonts.com. 
 
 My personal setup is based on [starship.toml](./starship.toml) that has to be copied to ``~/.config/starship.toml``.
 
+### Personal Setup
+Requirements:
+- Installed Nerd font
+- curl
+- fish
+```
+curl -sS https://starship.rs/install.sh | sh
+printf '\n#daz: starship.rs\nstarship init fish | source' >> ~/.config/fish/config.fish
+curl --output ~/.config/starship.toml https://raw.githubusercontent.com/elektrobohemian/linux_utilities/refs/heads/main/starship.toml
+```
+
 ## Data Management
 
 * Compare directories https://linuxhandbook.com/compare-directories/
