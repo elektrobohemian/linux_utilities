@@ -26,12 +26,39 @@ tar -xvf archive.tar path/to/file
 
 ### Image Processing
 
-- Convert all "image" files in a directory (bash, requires imagemagick and works on a myriad of file types)
+- Convert all "image" files in a directory (bash, requires imagemagick and works on a myriad of file types):
 
 ```
 for f in *.png; do
   convert ./"$f" ./"${f%.png}.pdf"
 done
+```
+
+- Convert PDFs to images (relies on `brew install poppler` or `pip install pdf2image`); (`-r` increases resolution), **recommended solution due to speed and quality**:
+
+```
+pdftoppm -png input.pdf <prefix_for_output>
+pdftoppm -png -r 300 input.pdf <prefix_for_output>
+```
+
+- ... with imagemagick:
+
+```
+convert -density 150 input.pdf output_prefix-%d.png
+```
+
+### Video Processing
+
+- Convert a MP4 to an animated GIF using `ffmpeg`:
+
+```
+ffmpeg -i cat.mp4 cat.gif
+```
+
+- but [GIFSKI](https://gif.ski) will give better results, for more details see: https://www.cyberciti.biz/faq/how-to-convert-video-to-gif-in-linux-using-ffmpeg-cli/
+
+```
+gifski --fps 10 --width 300 -o cat-gifski.gif cat.mp4
 ```
 
 ### Fonts
