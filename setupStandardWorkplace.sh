@@ -8,6 +8,7 @@ mkdir -p ~/temp
 mkdir -p ~/src
 
 printf "\n${YELLOW}Setting up typical tools (requires Homebrew)${NC}\n"
+brew install fish
 brew install starship
 brew install duf
 brew install htop
