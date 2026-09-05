@@ -30,3 +30,8 @@ curl --output ~/.config/starship.toml https://raw.githubusercontent.com/elektrob
 printf "\n${YELLOW}Adding macOS standard .gitignore${NC}\n"
 mkdir -p ~/.config/git
 curl --output ~/.config/git/ignore https://raw.githubusercontent.com/elektrobohemian/linux_utilities/refs/heads/main/gitignore_macos
+
+printf "\n${YELLOW}Setting standard shell to fish${NC}\n"
+command -v fish | sudo tee -a /etc/shells
+chsh -s "$(command -v fish)"
+
