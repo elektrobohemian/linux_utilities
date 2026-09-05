@@ -73,7 +73,11 @@ Typically, I use the `AtkynsonMono Nerd Font` from https://www.nerdfonts.com. Yo
 
 My personal setup is based on [starship.toml](./starship.toml) that has to be copied to `~/.config/starship.toml`.
 
-### Personal Setup
+### Personal Setup (automatic/macOS)
+
+Run [setupStandardWorkplace.sh](./setupStandardWorkplace.sh).
+
+### Personal Setup (manual)
 
 Requirements:
 
