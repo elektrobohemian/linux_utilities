@@ -46,6 +46,12 @@ pdftoppm -png -r 300 input.pdf <prefix_for_output>
 ```
 convert -density 150 input.pdf output_prefix-%d.png
 ```
+### PDF Processing
+
+- Split a multi-page PDF to single pages:
+``pdfseparate document.pdf %d.pdf``
+
+- Requires _toppler_ (``brew install poppler``)
 
 ### Video Processing
 
