@@ -6,6 +6,7 @@ printf "\n${YELLOW}Creating typical directories below home${NC}\n"
 
 mkdir -p ~/temp
 mkdir -p ~/src
+mkdir -p ~/src/__datasets
 
 printf "\n${YELLOW}Setting up typical tools (requires Homebrew)${NC}\n"
 brew install fish
