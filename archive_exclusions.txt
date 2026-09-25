@@ -23,6 +23,12 @@ venv/
 .Trash/
 .DS_Store
 
+# macOS 27-specific directories (non-directories or files with addtional right requirements)
+Library/Developer/CoreDevice/*
+Library/Application Support/FileProvider/4800914C-2F5F-472D-9A03-B028809473EC/*
+Library/Group Containers/group.com.apple.CoreSpeech/Caches/*
+Library/Group Containers/group.com.apple.secure-control-center-preferences/Library/Preferences/*
+
 # temporary, cache and log files (manually selected)
 Code/logs/
 .arduinoIDE/logs/
